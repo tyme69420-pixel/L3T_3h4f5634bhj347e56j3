@@ -10,5 +10,5 @@ print("Your Computer Name is:", hostname)
 print("Your Computer IP Address is:", IPAddr)
 
 with open(log.txt, "w") as file:
-  file.write("%s | %s" %(hostname, IPAddr))
+  file.write("%s | %s \n" %(hostname, IPAddr))
   

